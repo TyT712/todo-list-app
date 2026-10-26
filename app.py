@@ -22,6 +22,14 @@ def list_tasks(task_list=None):
         status = "[x]" if task['completed'] else "[ ]"
         print(f"{stt}. {status} {task['name']}")
         stt += 1
+
+def remove_task(task_index):
+    """Xóa một công việc dựa vào chỉ số (task_index)."""
+    if 0 <= task_index < len(tasks):
+        removed_task = tasks.pop(task_index)
+        print(f"Đã xóa công việc: '{removed_task['name']}'")
+    else:
+        print(f"Lỗi: Chỉ số {task_index} không hợp lệ.")
         
 # --- Điểm bắt đầu của chương trình ---
 if __name__ == "__main__":
@@ -32,4 +40,6 @@ if __name__ == "__main__":
     # Đánh dấu hoàn thành công việc đầu tiên (index 0)
     complete_task(0)
     
+    remove_task(1)
+
     list_tasks()
